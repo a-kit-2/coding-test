@@ -5,3 +5,5 @@
 def two_sum(nums, target)
     
 end
+
+two_sum()
