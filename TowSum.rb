@@ -16,3 +16,12 @@ def two_sum(nums, target)
 end
 
 puts two_sum([2,7,11,15],9)
+
+
+
+
+
+
+
+
+
