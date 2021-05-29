@@ -18,7 +18,7 @@ def two_sum(nums, target)
   return result
 end
 
-puts two_sum([3,3],6)
+puts two_sum([2,7,11,15],9)
 
 
 
