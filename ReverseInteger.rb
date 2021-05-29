@@ -5,7 +5,34 @@
 # Output: 321
 
 def reverse(x)
-  
+  result = 0
+  isNegative = false
+  if x < 0
+    x = x * -1
+    isNegative = true
+  end
+  while x > 0
+    result = result * 10 + x % 10
+    x /= 10
+  end
+  if -(2**31) <= result && result <= 2**31 -1
+    if isNegative
+      return result * -1
+    else
+      return result
+    end
+  else
+    return 0
+  end
 end
 
 puts reverse(123)
+
+
+
+
+
+
+
+
+
