@@ -24,4 +24,11 @@ def is_palindrome(x)
   x == rev ? true : false
 end
 
-puts is_palindrome(1)
+puts is_palindrome(121)
+
+
+
+
+
+
+
