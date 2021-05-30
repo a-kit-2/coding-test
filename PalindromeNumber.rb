@@ -10,7 +10,18 @@
 #              Therefore it is not a palindrome.
 
 def is_palindrome(x)
+  if x < 0
+    return false
+  end
 
+  y = x
+  rev = 0
+  while y > 0
+    rev = rev * 10 + y % 10
+    y /= 10
+  end
+
+  x == rev ? true : false
 end
 
-puts is_palindrome(121)
+puts is_palindrome(1)
