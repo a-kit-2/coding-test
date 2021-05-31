@@ -16,6 +16,9 @@
 # IをV(5)とX(10)の前に置くと、4と9を作ることができます。
 # XをL(50)とC(100)の前に置くと、40と90になります。
 # CをD(500)とM(1000)の前に置くと、400と900になります。
+# Input: s = "MCMXCIV"
+# Output: 1994
+# Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
 def roman_to_int(s)
   result = 0
