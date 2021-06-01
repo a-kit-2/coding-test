@@ -18,3 +18,8 @@ def longest_common_prefix(strs)
 end
 
 puts longest_common_prefix(["flower","flow","flaght"])
+
+
+
+
+
