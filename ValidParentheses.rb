@@ -7,7 +7,7 @@
 # Output: true
 
 def is_valid(s)
-    
+  
 end
 
 puts is_valid("()")
