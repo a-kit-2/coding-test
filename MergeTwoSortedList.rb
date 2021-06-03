@@ -33,7 +33,26 @@ b1.next = b2
 b2.next = b3
 
 def merge_two_lists(l1, l2)
-
+  l3 = ListNode.new(0)
+  result = l3
+  while l1 != nil && l2 != nil
+    if l1.val <= l2.val
+      l3.next = l1
+      l1 = l1.next
+    else
+      l3.next = l2
+      l2 = l2.next
+    end
+    l3 = l3.next
+  end
+  l3.next = l1 || l2
+  return result.next
 end
 
-merge_two_lists(a1, b2)
+puts show_node(merge_two_lists(a1, b1))
+
+
+
+
+
+
