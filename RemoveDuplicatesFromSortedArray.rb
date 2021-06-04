@@ -21,7 +21,17 @@
 #              It doesn't matter what you leave beyond the returned length.
 
 def remove_duplicates(nums)
-  
+  index = 0
+  if nums.length == 0
+    return 0
+  end
+  for i in 0...nums.length do
+    if nums[i] != nums[index]
+      index += 1
+      nums[index] = nums[i]
+    end
+  end
+  return index + 1
 end
 
-puts remove_duplicates([1,1,2])
+puts remove_duplicates([])
