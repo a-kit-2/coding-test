@@ -34,4 +34,4 @@ def remove_duplicates(nums)
   return index + 1
 end
 
-puts remove_duplicates([])
+puts remove_duplicates([1,1,2])
