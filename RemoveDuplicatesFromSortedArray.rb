@@ -21,7 +21,7 @@
 #              It doesn't matter what you leave beyond the returned length.
 
 def remove_duplicates(nums)
-    
+  
 end
 
 puts remove_duplicates([1,1,2])
