@@ -24,7 +24,14 @@
 #              your answer will be accepted.
 
 def remove_element(nums, val)
-  
+  index = 0
+  for i in 0...nums.length do
+    if nums[i] != val
+      nums[index] = nums[i]
+      index += 1
+    end
+  end
+  return index
 end
 
-puts remove_element([3,2,2,3], 3)
+puts remove_element([0,1,2,2,3,0,4,2], 2)
