@@ -5,7 +5,12 @@
 # Explanation: [4,-1,2,1] has the largest sum = 6.
 
 def max_sub_array(nums)
-    
+  max = nums[0]
+  for i in 1...nums.length do
+    nums[i] = [nums[i - 1] + nums[i], nums[i]].max
+    max = [max, nums[i]].max
+  end
+  return max
 end
 
 puts max_sub_array([-2,1,-3,4,-1,2,1,-5,4])
