@@ -6,7 +6,12 @@
 # Output: 5
 
 def length_of_last_word(s)
-  
+  words = s.split(" ")
+  if words.length > 0
+    return words[-1].length
+  else
+    return 0
+  end
 end
 
-puts length_of_last_word("Hello World")
+puts length_of_last_word(" ")
