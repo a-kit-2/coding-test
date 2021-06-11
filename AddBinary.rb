@@ -4,7 +4,7 @@
 # Output: "10101"
 
 def add_binary(a, b)
-    
+  
 end
 
 puts add_binary("11","1")
