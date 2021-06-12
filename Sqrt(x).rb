@@ -9,7 +9,19 @@
 #              and since the decimal part is truncated, 2 is returned.
 
 def my_sqrt(x)
-  
+  left = 0
+  right = x
+  while left <= right
+    middle = (left + right) / 2
+    if middle * middle == x
+      return middle
+    elsif middle * middle > x
+      right = middle - 1
+    else
+      left = middle + 1
+    end
+  end
+  return middle * middle > x ? middle - 1 : middle
 end
 
-puts my_sqrt(4)
+puts my_sqrt(8)
