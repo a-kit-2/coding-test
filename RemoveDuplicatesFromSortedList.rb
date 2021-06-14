@@ -20,7 +20,7 @@ def show_node(node)
   end
 end
 
-ln1 = ListNode.new(1)
+ln1 = ListNode.new()
 ln2 = ListNode.new(1)
 ln3 = ListNode.new(2)
 ln4 = ListNode.new(3)
@@ -31,6 +31,17 @@ ln3.next = ln4
 ln4.next = ln5
 
 def delete_duplicates(head)
+  current = head
+  if head == nil
+    return head
+  end
+  while current.next != nil
+    if current.val == current.next.val
+      current.next = current.next.next
+    else
+      current = current.next
+    end
+  end
   return head
 end
 
