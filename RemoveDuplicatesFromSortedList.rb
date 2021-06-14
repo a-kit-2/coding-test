@@ -31,7 +31,7 @@ ln3.next = ln4
 ln4.next = ln5
 
 def delete_duplicates(head)
-  show_node(head)
+  return head
 end
 
-puts delete_duplicates(ln1)
+puts show_node(delete_duplicates(ln1))
