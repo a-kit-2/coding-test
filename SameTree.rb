@@ -6,12 +6,12 @@
 # Output: true
 
 class TreeNode
-    attr_accessor :val, :left, :right
-    def initialize(val = 0, left = nil, right = nil)
-        @val = val
-        @left = left
-        @right = right
-    end
+  attr_accessor :val, :left, :right
+  def initialize(val = 0, left = nil, right = nil)
+    @val = val
+    @left = left
+    @right = right
+  end
 end
 
 n1 = TreeNode.new(1)
@@ -28,7 +28,11 @@ n4.left = n5
 n4.right = n6
 
 def is_same_tree(p, q)
-  
+  if p && q
+    return p.val == q.val && is_same_tree(p.left, q.left) && is_same_tree(p.right, q.right)
+  else
+    return p == q
+  end
 end
 
 p is_same_tree(n1, n4)
