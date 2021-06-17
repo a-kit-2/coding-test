@@ -28,7 +28,7 @@ n4.left = n5
 n4.right = n6
 
 def is_same_tree(p, q)
-  return true || false 
+  
 end
 
-p is_same_tree(n1, n2)
+p is_same_tree(n1, n4)
