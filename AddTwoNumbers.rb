@@ -33,20 +33,8 @@ ln2.next = ln3
 ln4.next = ln5
 ln5.next = ln6
 
-
 def add_two_numbers(l1, l2)
-  l3 = ListNode.new(0)
-  carry = 0
-  while l1 && l2
-    sum = l1.val + l2.val + carry
-    carry = sum / 10
-    l3.val = sum % 10
-    l1 = l1.next
-    l2 = l2.next
-    l3 = l3.next
-  end
-  l3.next = l1 || l2
-  return l3.next
+  
 end
 
 puts show_node(add_two_numbers(ln1, ln4))
