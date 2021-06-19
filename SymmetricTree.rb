@@ -27,7 +27,17 @@ t5.left = t6
 t5.right = t7
 
 def is_symmetric(root)
-  
+  return compare(root.left, root.right)
+end
+
+def compare(left, right)
+  if left == nil && right == nil
+    return true
+  elsif left == nil || right == nil
+    return false
+  else
+    return left.val == right.val && compare(left.left, right.right) && compare(left.right, right.left)
+  end
 end
 
 p is_symmetric(t1)
