@@ -23,7 +23,11 @@ tn3.left = tn4
 tn3.right = tn5
 
 def max_depth(root)
-  
+  if root
+    return [max_depth(root.left), max_depth(root.right)].max + 1
+  else
+    return 0
+  end
 end
 
 p max_depth(tn1)
