@@ -17,7 +17,14 @@ class TreeNode
 end
 
 def sorted_array_to_bst(nums)
-  
+  if nums.length <= 0
+    return nil
+  end
+  middle = nums.length / 2
+  root = TreeNode.new(nums[middle])
+  root.left = sorted_array_to_bst(nums[0...middle])
+  root.right = sorted_array_to_bst(nums[(middle + 1)..-1])
+  return root
 end
 
 p sorted_array_to_bst([-10,-3,0,5,9]).val
