@@ -27,5 +27,6 @@ insert into Person (PersonId, LastName, FirstName) values ('2', 'Wang2', 'Allen2
 Truncate table Address;
 insert into Address (AddressId, PersonId, City, State) values ('1', '2', 'New York City', 'New York');
 
-select * from Person;
-select * from Address;
+select FirstName, LastName, City, State
+from Person left join Address
+on Person.PersonId = Address.PersonId;
