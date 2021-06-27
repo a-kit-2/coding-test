@@ -23,4 +23,8 @@ insert into Employee (Id, Name, Salary, ManagerId) values ('2', 'Henry', '80000'
 insert into Employee (Id, Name, Salary, ManagerId) values ('3', 'Sam', '60000', '0');
 insert into Employee (Id, Name, Salary, ManagerId) values ('4', 'Max', '90000', '0');
 
-select * from Employee;
+select employee.Name as Employee
+from Employee as employee
+left join Employee as manager
+on employee.ManagerId = manager.Id
+where employee.Salary > manager.Salary;
