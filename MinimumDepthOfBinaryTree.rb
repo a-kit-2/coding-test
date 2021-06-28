@@ -1,3 +1,4 @@
+# 二分木が与えられたら、その最小の深さを見つけます。
 # 最小深度は、ルートノードから最も近いリーフノードまでの最短パスに沿ったノードの数です。 
 # 注：リーフは子のないノードです。
 # Input: root = [3,9,20,null,null,15,7]
@@ -13,7 +14,7 @@ class TreeNode
 end
 
 def min_depth(root)
-  
+
 end
 
 require 'minitest/autorun'
