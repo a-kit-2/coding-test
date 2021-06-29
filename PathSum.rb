@@ -18,7 +18,14 @@ end
 # @param {Integer} target_sum
 # @return {Boolean}
 def has_path_sum(root, target_sum)
-  
+  if root == nil
+    return false
+  elsif root.left == nil && root.right == nil && target_sum == root.val
+    return true
+  else
+    target_sum -= root.val
+    return has_path_sum(root.left, target_sum) || has_path_sum(root.right, target_sum)
+  end
 end
 
 require 'minitest/autorun'
