@@ -6,7 +6,22 @@
 # @param {Integer} num_rows
 # @return {Integer[][]}
 def generate(num_rows)
-  
+  result = []
+  num_rows.times do |i|
+    result.push([1]*(i+1))
+  end
+  num_rows.times do |i|
+    i.times do |j|
+      if j == 0
+        result[i][j] = 1
+      elsif i == j
+        result[i][j] = 1
+      else
+        result[i][j] = result[i-1][j-1] + result[i-1][j]
+      end
+    end
+  end
+  return result
 end
 
 require 'minitest/autorun'
