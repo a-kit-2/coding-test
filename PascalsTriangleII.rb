@@ -6,7 +6,22 @@
 # @param {Integer} row_index
 # @return {Integer[]}
 def get_row(row_index)
-  
+  result = []
+  (row_index+1).times do |i|
+    result.push([1]*(i+1))
+  end
+  (row_index+1).times do |i|
+    i.times do |j|
+      if j == 0
+        result[i][j] = 1
+      elsif i == j
+        result[i][j] = 1
+      else
+        result[i][j] = result[i-1][j-1] + result[i-1][j]
+      end
+    end
+  end
+  return result[row_index]
 end
 
 require 'minitest/autorun'
