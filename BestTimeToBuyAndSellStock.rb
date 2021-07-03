@@ -11,7 +11,16 @@
 # @param {Integer[]} prices
 # @return {Integer}
 def max_profit(prices)
-  
+  profit = 0
+  min = prices[0]
+  prices.length.times do |i|
+    if prices[i] > prices[i - 1]
+      profit = [profit, prices[i] - min].max
+    else
+      min = [min, prices[i]].min
+    end
+  end
+  return profit
 end
 
 require 'minitest/autorun'
