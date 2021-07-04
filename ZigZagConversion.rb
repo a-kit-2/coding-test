@@ -16,14 +16,15 @@
 # @param {Integer} num_rows
 # @return {String}
 def convert(s, num_rows)
-    
+  
 end
 
 require 'minitest/autorun'
 
 class ZigZagConversionTest < Minitest::Test
-  def test_max_profit
+  def test_convert
     assert_equal "PAHNAPLSIIGYIR", convert("PAYPALISHIRING", 3)
     assert_equal "PINALSIGYAHRPI", convert("PAYPALISHIRING", 4)
+    assert_equal "A", convert("A", 1)
   end
 end
