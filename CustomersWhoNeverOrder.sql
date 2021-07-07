@@ -35,5 +35,6 @@ Truncate table Orders;
 insert into Orders (Id, CustomerId) values ('1', '3');
 insert into Orders (Id, CustomerId) values ('2', '1');
 
-select * from Customers;
-select * from Orders;
+select Customers.name as Customers
+from Customers
+where Customers.id not in (select CustomerId from Orders);
