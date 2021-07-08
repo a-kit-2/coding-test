@@ -22,4 +22,7 @@ insert into Person (Id, Email) values ('1', 'john@example.com');
 insert into Person (Id, Email) values ('2', 'bob@example.com');
 insert into Person (Id, Email) values ('3', 'john@example.com');
 
-select * from Person;
+delete person1 from Person as person1
+join Person as person2
+on person1.Email = person2.Email
+where person1.id > person2.id;
