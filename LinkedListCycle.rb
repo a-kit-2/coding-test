@@ -20,7 +20,23 @@ end
 # @param {ListNode} head
 # @return {Boolean}
 def has_cycle(head)
-  
+  if !head || !head.next
+    return false
+  end
+  forward_one = head
+  forward_two = head.next
+  while forward_one != forward_two
+    if !forward_one || !forward_two
+      return false
+    end
+    forward_one = forward_one.next
+    if forward_two.next
+      forward_two = forward_two.next.next
+    else
+      return false
+    end
+  end
+  return true
 end
 
 require 'minitest/autorun'
@@ -46,6 +62,12 @@ class LinkedListCycleTest < Minitest::Test
   end
   def test_has_cycle3
     ln1 = ListNode.new(1)
+    assert_equal false, has_cycle(ln1)
+  end
+  def test_has_cycle4
+    ln1 = ListNode.new(1)
+    ln2 = ListNode.new(2)
+    ln1.next = ln2
     assert_equal false, has_cycle(ln1)
   end
 end
