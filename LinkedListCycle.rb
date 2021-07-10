@@ -38,14 +38,10 @@ class LinkedListCycleTest < Minitest::Test
     assert_equal true, has_cycle(ln1)
   end
   def test_has_cycle2
-    ln1 = ListNode.new(3)
+    ln1 = ListNode.new(1)
     ln2 = ListNode.new(2)
-    ln3 = ListNode.new(0)
-    ln4 = ListNode.new(-4)
     ln1.next = ln2
-    ln2.next = ln3
-    ln3.next = ln4
-    ln4.next = ln2
+    ln2.next = ln1
     assert_equal true, has_cycle(ln1)
   end
   def test_has_cycle3
