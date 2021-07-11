@@ -14,7 +14,14 @@ end
 # @param {TreeNode} root
 # @return {Integer[]}
 def preorder_traversal(root)
-  
+  result = []
+  if root == nil
+    return []
+  end
+  result.push(root.val)
+  result += preorder_traversal(root.left)
+  result += preorder_traversal(root.right)
+  return result
 end
 
 require 'minitest/autorun'
