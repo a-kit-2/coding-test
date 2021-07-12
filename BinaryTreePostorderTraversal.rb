@@ -1,4 +1,4 @@
-# 二分木のルートが与えられた場合、そのノードの値のポストオーダートラバーサル(間順)を返します。
+# 二分木のルートが与えられた場合、そのノードの値のポストオーダートラバーサル(後順)を返します。
 # Input: root = [1,null,2,3]
 # Output: [3,2,1]
 
@@ -14,7 +14,14 @@ end
 # @param {TreeNode} root
 # @return {Integer[]}
 def postorder_traversal(root)
-  
+  result = []
+  if root == nil
+    return []
+  end
+  result += postorder_traversal(root.left)
+  result += postorder_traversal(root.right)
+  result.push(root.val)
+  return result
 end
 
 require 'minitest/autorun'
