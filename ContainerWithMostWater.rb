@@ -10,14 +10,7 @@
 # @param {Integer[]} height
 # @return {Integer}
 def max_area(height)
-  area = 0
-  i = 0
-  j = height.length - 1
-  while i < j
-    area = [area, [height[i], height[j]].min * (j - i)].max
-    height[i] <= height[j] ? i += 1 : j -= 1
-  end
-  return area
+  
 end
 
 require 'minitest/autorun'
