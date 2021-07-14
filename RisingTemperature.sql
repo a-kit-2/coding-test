@@ -36,4 +36,6 @@ insert into Weather (Id, RecordDate, Temperature) values ('2', '2015-01-02', '25
 insert into Weather (Id, RecordDate, Temperature) values ('3', '2015-01-03', '20');
 insert into Weather (Id, RecordDate, Temperature) values ('4', '2015-01-04', '30');
 
-select * from Weather;
+select w1.id from Weather as w1, Weather as w2
+where datediff(w1.recordDate, w2.recordDate) = 1
+and w1.temperature > w2.temperature;
