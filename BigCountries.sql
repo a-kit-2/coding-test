@@ -25,4 +25,5 @@ insert into World (name, continent, area, population, gdp) values ('Algeria', 'A
 insert into World (name, continent, area, population, gdp) values ('Andorra', 'Europe', '468', '78115', '3712000000');
 insert into World (name, continent, area, population, gdp) values ('Angola', 'Africa', '1246700', '20609294', '10099000');
 
-select * from World;
+select name, population, area from World
+where area > 3000000 or population > 25000000;
