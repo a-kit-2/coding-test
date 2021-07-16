@@ -1,6 +1,6 @@
 # 文字列を32ビットの符号付き整数に変換するmyAtoi（string s）関数を実装します（C / C ++のatoi関数と同様）。
 # 1. 読み込み、先頭の空白を無視します。
-# 2. 次の文字（まだ文字列の最後にない場合）が '-'または ''であるかどうかを確認します。 
+# 2. 次の文字（まだ文字列の最後にない場合）が '-'または '+'であるかどうかを確認します。 
 #    どちらかである場合は、この文字を読んでください。
 #    これにより、最終結果がそれぞれ負か正かが決まります。 どちらも存在しない場合、結果は正であると想定します。
 # 3. 次の数字以外の文字または入力の終わりに達するまで、次の文字を読み込みます。文字列の残りの部分は無視されます。
@@ -25,7 +25,35 @@
 # @param {String} s
 # @return {Integer}
 def my_atoi(s)
-    
+  i = 0
+  len = s.length
+  negative = false
+  ans = 0
+  max = 2 ** 31 - 1
+  min = -1 * 2 ** 31
+  while i < len && s[i] == " "
+    i += 1
+  end
+  if i < len
+    if s[i] == "-"
+      negative = true
+      i += 1
+    elsif s[i] == "+"
+      i += 1
+    end
+  else
+    return 0
+  end
+  while i < len && /^[0-9]/.match?(s[i])
+    ans = ans * 10 + s[i].to_i
+    i += 1
+    if ans * (negative ? -1 : 1) > max
+      return max
+    elsif ans * (negative ? -1 : 1) < min
+      return min
+    end
+  end
+  return ans * (negative ? -1 : 1)
 end
 
 require 'minitest/autorun'
