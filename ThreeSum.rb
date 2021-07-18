@@ -13,7 +13,7 @@ end
 
 require 'minitest/autorun'
 
-class 3SumTest < Minitest::Test
+class TtreeSumTest < Minitest::Test
   def test_three_sum
     assert_equal [[-1,-1,2],[-1,0,1]], three_sum([-1,0,1,2,-1,-4])
     assert_equal [], three_sum([])
