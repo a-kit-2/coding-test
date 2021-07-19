@@ -9,7 +9,35 @@
 # @param {Integer} target
 # @return {Integer}
 def three_sum_closest(nums, target)
-  
+  nums = nums.sort
+  result = 0
+  closest = 2 ** 31 - 1
+  (nums.length - 2).times do |i|
+    if i > 0 && nums[i] == nums[i - 1]
+      next
+    end
+    left = i + 1
+    right = nums.length - 1
+    while left < right
+      sum = nums[i] + nums[left] + nums[right]
+      if sum == target
+        return sum
+      elsif sum > target
+        if (sum - target) < closest
+          closest = sum - target
+          result = sum
+        end
+        right -= 1
+      else
+        if (target - sum) < closest
+          closest = target - sum
+          result = sum
+        end
+        left += 1
+      end
+    end
+  end
+  return result
 end
 
 require 'minitest/autorun'
