@@ -17,7 +17,22 @@ end
 # @param {Integer} n
 # @return {ListNode}
 def remove_nth_from_end(head, n)
-  
+  dummy = ListNode.new(0)
+  dummy.next = head
+  len = 0
+  node = head
+  while node
+    len += 1
+    node = node.next
+  end
+  len -= n
+  node = dummy
+  while len > 0
+    len -= 1
+    node = node.next
+  end
+  node.next = node.next.next
+  return dummy.next
 end
 
 require 'minitest/autorun'
