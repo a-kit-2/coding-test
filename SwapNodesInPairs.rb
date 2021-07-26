@@ -17,7 +17,19 @@ end
 # @param {ListNode} head
 # @return {ListNode}
 def swap_pairs(head)
-  
+  dummy = ListNode.new(0)
+  dummy.next = head
+  node = dummy
+  while node.next && node.next.next
+    temp1 = node.next
+    temp2 = node.next.next
+    temp3 = node.next.next.next
+    temp1.next = temp3
+    temp2.next = temp1
+    node.next = temp2
+    node = temp1
+  end
+  return dummy.next
 end
 
 require 'minitest/autorun'
@@ -38,7 +50,7 @@ class SwapNodesInPairsTest < Minitest::Test
     ln1res.next = ln2res
     ln2res.next = ln3res
     ln3res.next = ln4res
-    assert  ln1res == swap_pairs(ln1)
+    assert ln1res == swap_pairs(ln1)
   end
   def test_swap_pairs2
     assert_nil swap_pairs(nil)
@@ -46,6 +58,6 @@ class SwapNodesInPairsTest < Minitest::Test
   def test_swap_pairs3
     ln1 = ListNode.new(1)
     ln1res = ListNode.new(1)
-    assert  ln1res == swap_pairs(ln1)
+    assert ln1res == swap_pairs(ln1)
   end
 end
