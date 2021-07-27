@@ -13,7 +13,24 @@
 # @param {Integer} divisor
 # @return {Integer}
 def divide(dividend, divisor)
-  
+  max = 2 ** 31 - 1
+  min = -1 * 2 ** 31
+  negative = (dividend < 0) ^ (divisor < 0) ? true : false
+  dividend = dividend.abs
+  divisor = divisor.abs
+  quotient = 0
+  while dividend >= divisor
+    temp1 = divisor
+    temp2 = 1
+    while dividend >= temp1
+      dividend -= temp1
+      quotient += temp2
+      temp1 *= 2
+      temp2 *= 2
+    end
+  end
+  quotient = negative ? -1 * quotient : quotient
+  return [max, [min, quotient].max].min
 end
 
 require 'minitest/autorun'
