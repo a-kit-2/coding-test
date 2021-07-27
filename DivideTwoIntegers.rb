@@ -24,5 +24,6 @@ class DivideTowIntegersTest < Minitest::Test
     assert_equal -2, divide(7, -3)
     assert_equal 0, divide(0, 1)
     assert_equal 1, divide(1, 1)
+    assert_equal 2**31 - 1, divide(-1 * 2**31, -1)
   end
 end
