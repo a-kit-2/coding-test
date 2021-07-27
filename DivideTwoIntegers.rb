@@ -13,7 +13,15 @@
 # @param {Integer} divisor
 # @return {Integer}
 def divide(dividend, divisor)
-  
+  negative = (dividend < 0) ^ (divisor < 0) ? true : false
+  dividend = dividend.abs
+  divisor = divisor.abs
+  quotient = 0
+  while dividend >= divisor
+    dividend -= divisor
+    quotient += 1
+  end
+  return negative ? -1 * quotient : quotient 
 end
 
 require 'minitest/autorun'
