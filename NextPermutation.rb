@@ -6,6 +6,12 @@
 # 追加の記憶領域をほとんど使わずに行うアルゴリズムを意味する。)
 # Input: nums = [1,2,3]
 # Output: [1,3,2]
+# 123
+# 132
+# 213
+# 231
+# 312
+# 321
 
 # @param {Integer[]} nums
 # @return {Void} Do not return anything, modify nums in-place instead.
