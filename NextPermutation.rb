@@ -18,6 +18,30 @@
 def next_permutation(nums)
   #  [4, 1, 3, 7, 6, 5, 2]
   #         k  l     i i+1
+  k = -1
+  i = nums.length - 2
+  while i >= 0
+    if nums[i] < nums[i + 1]
+      k = i
+      break
+    end
+    i -= 1
+  end
+  if k == -1
+    nums.reverse!
+    return
+  end
+  l = k + 1
+  i = nums.length - 1
+  while i > k + 1
+    if nums[k] < nums[i]
+      l = i
+      break
+    end
+    i -= 1
+  end
+  nums[k], nums[l] = nums[l], nums[k]
+  nums[k + 1...nums.length] = nums[k + 1...nums.length].reverse
 end
 
 require 'minitest/autorun'
