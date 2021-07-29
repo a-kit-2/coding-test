@@ -17,7 +17,7 @@
 # @return {Void} Do not return anything, modify nums in-place instead.
 def next_permutation(nums)
   #  [4, 1, 3, 7, 6, 5, 2]
-  #         k        l  i
+  #         k  l     i i+1
 end
 
 require 'minitest/autorun'
@@ -42,5 +42,10 @@ class NextPermutationTest < Minitest::Test
     nums = [1]
     next_permutation(nums)
     assert_equal [1], nums
+  end
+  def test_next_permutation5
+    nums = [1,3,2]
+    next_permutation(nums)
+    assert_equal [2,1,3], nums
   end
 end
