@@ -1,4 +1,4 @@
-# 2つの整数のd被除数と除数が与えられたとき、乗算、除算、mod演算子を使わずに2つの整数を割り算します。
+# 2つの整数の被除数と除数が与えられたとき、乗算、除算、mod演算子を使わずに2つの整数を割り算します。
 # 被除数を除数で割った後、商を返します。 
 # 整数の除算はゼロに向かって切り捨てる必要があります。
 # これは、小数部分が失われることを意味します。 
@@ -13,15 +13,24 @@
 # @param {Integer} divisor
 # @return {Integer}
 def divide(dividend, divisor)
+  max = 2 ** 31 - 1
+  min = -1 * 2 ** 31
   negative = (dividend < 0) ^ (divisor < 0) ? true : false
   dividend = dividend.abs
   divisor = divisor.abs
   quotient = 0
   while dividend >= divisor
-    dividend -= divisor
-    quotient += 1
+    temp1 = divisor
+    temp2 = 1
+    while dividend >= temp1
+      dividend -= temp1
+      quotient += temp2
+      temp1 *= 2
+      temp2 *= 2
+    end
   end
-  return negative ? -1 * quotient : quotient 
+  quotient = negative ? -1 * quotient : quotient
+  return [max, [min, quotient].max].min
 end
 
 require 'minitest/autorun'
@@ -32,5 +41,6 @@ class DivideTowIntegersTest < Minitest::Test
     assert_equal -2, divide(7, -3)
     assert_equal 0, divide(0, 1)
     assert_equal 1, divide(1, 1)
+    assert_equal 2**31 - 1, divide(-1 * 2**31, -1)
   end
 end
