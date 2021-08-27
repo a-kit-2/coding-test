@@ -16,6 +16,8 @@ def majority_element(nums)
   # --------------
   # [1, 1, 1, 2 ,2, 2, 2, 2]
   #           -------------
+  nums = nums.sort
+  return nums[nums.length / 2]
 end
 
 require 'minitest/autorun'
